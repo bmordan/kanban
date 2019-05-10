@@ -1,0 +1,23 @@
+<section class="pa2 bg-white">
+    <article data-board_id="<%= board.id %>" class="w-100 flex justify-between">
+        <% cols.each do |colname, tasks| %>
+            <section style="height:80vh;" class="w-33 pa2 bg-yellow flex flex-column justify-start">
+                <h2 class="w-100 tc white flex-none"><%= colname %></h2>
+                <ul id="<%= colname %>" class="colname bg-light-yellow pa2 flex-auto ba b--gold bw1">
+                    <% tasks.each do |task| %>
+                        <%= erb :task, :locals => {task: task} %>
+                    <% end %>
+                </ul>
+            </section>
+        <% end %>
+    </article>
+</section>
+<section class="pa2">
+    <form action="/board/<%= board.id %>/task" method="POST">
+        <input name="task" type="text" placeholder="add a task" />
+        <input name="status" value="pending" type="hidden" />
+        <input name="colname" value="todo" type="hidden" />
+        <input name="board_id" value="<%= board.id %>" type="hidden" />
+        <button type="submit">Add</button>
+    </form>
+</section>

@@ -1,0 +1,3 @@
+<article id="task-<%=task.id%>" class="task h4 w4 bg-yellow ba b--gold flex flex-column pa2 mb2 mr2">
+    <p class="flex-auto <%= 'strike' unless task.status == 'pending' %>"><%= task.task %></p>
+</article>

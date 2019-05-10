@@ -1,0 +1,10 @@
+<div class="w-50 center flex flex-wrap bg-white">
+    <% users.each do |user|%>
+        <a class="dib flex items-center justify-start ma3" href="/user/<%=user.id%>/boards">
+            <div>
+                <img class="w3 h3 br-100" src="<%= user.avatar %>" />
+            </div>
+            <div class="link f4 ml3"><%= user.name %></div>
+        </a>
+    <% end %>
+</div>
