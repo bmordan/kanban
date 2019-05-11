@@ -2,9 +2,14 @@
     <h1>Boards</h1>
     <div class="flex flex-wrap">
         <% boards.each do |board| %>
-            <a href="/board/<%= board.id %>" class="ba b--gold dib h5 w5 bg-yellow orange b flex flex-column justify-end pa2 mr2 mb2">
-                <div><%= board.title %></div>
-            </a>
+            <div class="ba b--gold dib h5 w5 bg-yellow orange b flex flex-column justify-end pa2 mr2 mb2">
+                <a class="dib flex-auto" href="/board/<%= board.id %>"></a>
+                <div class="flex justify-between">
+                    <a href="/board/<%= board.id %>"><%= board.title %></a>
+                    <span>(<%= board.tasks.all.count %> tasks)</span>
+                    <a href="/board/<%= board.id %>/delete">delete</a>
+                </div>
+            </div>
         <% end %>
     </div>
 </section>

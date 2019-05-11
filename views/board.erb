@@ -1,4 +1,5 @@
-<section class="pa2 bg-white">
+<section id="board" class="pa2 bg-white">
+    <h1><a href="/boards">← Boards</a></h1>
     <article data-board_id="<%= board.id %>" class="w-100 flex justify-between">
         <% cols.each do |colname, tasks| %>
             <section style="height:80vh;" class="w-33 pa2 bg-yellow flex flex-column justify-start">
@@ -13,7 +14,7 @@
     </article>
 </section>
 <section class="pa2">
-    <form action="/board/<%= board.id %>/task" method="POST">
+    <form class="flex-auto" action="/board/<%= board.id %>/task" method="POST">
         <input name="task" type="text" placeholder="add a task" />
         <input name="status" value="pending" type="hidden" />
         <input name="colname" value="todo" type="hidden" />

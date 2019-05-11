@@ -13,3 +13,5 @@ gem "sinatra-activerecord", "~> 2.0"
 gem "rake", "~> 12.3"
 
 gem "sqlite3", "~> 1.4"
+
+gem "sinatra-websocket", "~> 0.3.1"
