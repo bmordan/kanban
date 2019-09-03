@@ -4,25 +4,25 @@ source "https://rubygems.org"
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
-# gem "rails"
-
 gem "sinatra", "~> 2.0"
 gem "activerecord", "~> 5.2"
 gem "sinatra-activerecord", "~> 2.0"
-
 gem "rake", "~> 12.3"
-
-gem "sqlite3", "~> 1.4"
-
 gem "sinatra-websocket", "~> 0.3.1"
 
-gem "pry", "~> 0.12.2", :group => :development
+group :development do
+    gem "pry", "~> 0.12.2"
+    gem "sqlite3", "~> 1.4"
+end
 
-gem "rspec", "~> 3.8", :group => :test
-gem "capybara", "~> 3.28", :group => :test
+group :test do
+    gem "rspec", "~> 3.8"
+    gem "capybara", "~> 3.28"
+    gem "selenium-webdriver", "~> 3.142"
+end
 
-gem "selenium-webdriver", "~> 3.142", :group => :test
+group :production do
+    gem "pg", "~> 1.1"
+    gem "activerecord-postgresql-adapter", "~> 0.0.1"
+end
 
-gem "pg", "~> 1.1"
-
-gem "activerecord-postgresql-adapter", "~> 0.0.1"
