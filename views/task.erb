@@ -2,7 +2,7 @@
     <p class="<%= 'strike' unless task.status == 'pending' %>">
         <%= task.task %>
     </p>
-    <a href="/user/<%=task.user.id%>" class="absolute right-0 bottom-0 dib flex items-center link pv1 pr1">
+    <a href="/user/<%=task.user.id%>" class="absolute right-0 bottom-0 db flex items-center link pv1 pr1">
         <span><%= task.user.name %></span>
         <img src="<%=task.user.avatar%>" class="br100 h2 w2 flex-none ml1" />
     </a>
