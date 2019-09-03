@@ -7,5 +7,8 @@ test:
     database: db/test.sqlite3
 
 production:
-    adapter: pg
+    adapter: postgresql
     database: kanban
+    username: bmordan
+    password: password
+    host: localhost

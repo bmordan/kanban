@@ -22,3 +22,7 @@ gem "rspec", "~> 3.8", :group => :test
 gem "capybara", "~> 3.28", :group => :test
 
 gem "selenium-webdriver", "~> 3.142", :group => :test
+
+gem "pg", "~> 1.1"
+
+gem "activerecord-postgresql-adapter", "~> 0.0.1"
