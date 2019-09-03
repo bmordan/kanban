@@ -1,9 +1,9 @@
 <article id="task-<%=task.id%>" class="relative task w5 bg-yellow ba b--gold mb2 ph2">
     <p class="<%= 'strike' unless task.status == 'pending' %>">
         <%= task.task %>
-        <a href="/user/<%=task.user.id%>" class="absolute right-0 bottom-0 dib flex items-center link pb1 pr1">
-            <span><%= task.user.name %></span>
-            <img src="<%=task.user.avatar%>" class="br100 h2 w2 flex-none ml1" />
-        </a>
     </p>
+    <a href="/user/<%=task.user.id%>" class="absolute right-0 bottom-0 dib flex items-center link pv1 pr1">
+        <span><%= task.user.name %></span>
+        <img src="<%=task.user.avatar%>" class="br100 h2 w2 flex-none ml1" />
+    </a>
 </article>
