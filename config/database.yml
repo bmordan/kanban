@@ -11,4 +11,4 @@ production:
     database: kanban
     username: bmordan
     password: password
-    host: localhost
+    host: ENV["DATABASE_URL"]

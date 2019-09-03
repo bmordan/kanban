@@ -4,7 +4,6 @@ require "sinatra-websocket"
 require "./lib/user"
 require "./lib/board"
 require "./lib/task"
-require "pry"
 
 class Server < Sinatra::Base
   register Sinatra::ActiveRecordExtension
