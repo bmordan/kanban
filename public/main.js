@@ -1,6 +1,6 @@
 $(function () {
     const { board_id } = $('[data-board_id]').data()
-    const ws = new WebSocket(`ws://${window.location.hostname}:9292/board/${board_id}/socket`)
+    const ws = new WebSocket(`wss://${window.location.hostname}/board/${board_id}/socket`)
     
     $(".colname").droppable({
         accept: ".task",
