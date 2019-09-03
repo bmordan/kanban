@@ -15,3 +15,10 @@ gem "rake", "~> 12.3"
 gem "sqlite3", "~> 1.4"
 
 gem "sinatra-websocket", "~> 0.3.1"
+
+gem "pry", "~> 0.12.2", :group => :development
+
+gem "rspec", "~> 3.8", :group => :test
+gem "capybara", "~> 3.28", :group => :test
+
+gem "selenium-webdriver", "~> 3.142", :group => :test

@@ -4,6 +4,8 @@ class CreateTasksTable < ActiveRecord::Migration[5.2]
       col.string :task
       col.string :status
       col.string :colname
+      col.integer :board_id
+      col.integer :user_id
     end
   end
 

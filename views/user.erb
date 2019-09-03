@@ -1,0 +1,7 @@
+<section class="pa3">
+    <h1><%=user.name%></h1>
+    <h2>(<%=user.tasks.count%>) tasks</h2>
+    <%user.tasks.each do |task|%>
+        <%=erb :task, locals: {task: task}%>
+    <%end%>
+</section>

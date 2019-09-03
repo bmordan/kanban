@@ -1,10 +1,22 @@
-<div class="w-50 center flex flex-wrap bg-white">
+<h1 class="pa2 w-100 tc">Users</h1>
+<div class="w-50 center flex flex-wrap">
     <% users.each do |user|%>
-        <a class="dib flex items-center justify-start ma3" href="/user/<%=user.id%>/boards">
-            <div>
-                <img class="w3 h3 br-100" src="<%= user.avatar %>" />
-            </div>
-            <div class="link f4 ml3"><%= user.name %></div>
-        </a>
+        <article class="flex flex-column bg-white pa2 mr2 mb2">
+            <a class="dib flex items-center justify-start" href="/user/<%=user.id%>/boards">
+                <div>
+                    <img class="w3 h3 br-100" src="<%= user.avatar %>" />
+                </div>
+                <div class="link f4 ml3"><%= user.name %></div>
+            </a>
+            <ul>
+                <% user.tasks.each do |task| %>
+                    <li>
+                        <a href="/board/<%=task.board_id%>">
+                            <%= task.task %> - <%= task.status %>
+                        </a>
+                    </li>
+                <% end %>
+            </ul>
+        </article>
     <% end %>
 </div>

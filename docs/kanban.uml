@@ -1,0 +1,30 @@
+@startuml
+!define table(x) class x << (T,#FFAAAA) >>
+!define foreign_key(x) *x
+hide methods 
+hide stereotypes
+
+table(boards) {
+    id
+    title
+}
+
+table(users) {
+    id
+    name
+    avatar
+}
+
+table(tasks) {
+    id
+    task
+    status
+    colname
+    foreign_key(board_id)
+    foreign_key(user_id)
+}
+
+boards::id --> tasks::board_id
+users::id --> tasks::user_id
+
+@enduml

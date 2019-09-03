@@ -4,7 +4,7 @@
         <% cols.each do |colname, tasks| %>
             <section style="height:80vh;" class="w-33 pa2 bg-yellow flex flex-column justify-start">
                 <h2 class="w-100 tc white flex-none"><%= colname %></h2>
-                <ul id="<%= colname %>" class="colname bg-light-yellow pa2 flex-auto ba b--gold bw1">
+                <ul id="<%= colname %>" class="colname bg-light-yellow pa2 flex-auto ba b--gold bw1 overflow-y-scroll">
                     <% tasks.each do |task| %>
                         <%= erb :task, :locals => {task: task} %>
                     <% end %>
@@ -13,9 +13,17 @@
         <% end %>
     </article>
 </section>
-<section class="pa2">
+<section class="pa2 mb4">
     <form class="flex-auto" action="/board/<%= board.id %>/task" method="POST">
         <input name="task" type="text" placeholder="add a task" />
+        <label>Assign to user:</label>
+        <select name="user_id">
+            <% users.each do |user| %>
+                <option value="<%=user.id%>">
+                    <%=user.name%>
+                </option>
+            <% end %>
+        </select>
         <input name="status" value="pending" type="hidden" />
         <input name="colname" value="todo" type="hidden" />
         <input name="board_id" value="<%= board.id %>" type="hidden" />

@@ -4,17 +4,22 @@ require "sinatra-websocket"
 require "./lib/user"
 require "./lib/board"
 require "./lib/task"
+require "pry"
 
 class Server < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   enable :sessions
   set :sockets, Hash.new
 
-  get "/" do
+  get "/users" do
     erb :users, :locals => { users: User.all }, :layout => :layout
   end
 
-  get "/boards" do
+  get "/user/:id" do |id|
+    erb :user, locals: { user: User.find(id) }, :layout => :layout
+  end
+
+  get /\/|\/boards/ do
     erb :boards, :locals => { boards: Board.all }, :layout => :layout
   end
 
@@ -52,14 +57,14 @@ class Server < Sinatra::Base
 
   get "/board/:id" do |id|
     board = Board.find(id)
-    erb :board, :locals => { board: board, cols: board.as_cols }, :layout => :layout_board
+    erb :board, :locals => { board: board, cols: board.as_cols, users: User.all }, :layout => :layout_board
   end
 
   post "/board/:id/task" do |id|
     task = params.reject { |key, val| key == "id" }
     Task.create(task)
     board = Board.find(id)
-    erb :board, :locals => { board: board, cols: board.as_cols }, :layout => :layout_board
+    erb :board, :locals => { board: board, cols: board.as_cols, users: User.all }, :layout => :layout_board
   end
 
   get "/board/:id/delete" do |id|

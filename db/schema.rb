@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 5) do
+ActiveRecord::Schema.define(version: 2019_09_02_074312) do
 
   create_table "boards", force: :cascade do |t|
     t.string "title"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 5) do
     t.string "status"
     t.string "colname"
     t.integer "board_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
